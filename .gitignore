@@ -1,0 +1,18 @@
+# dependências e build
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# dados gerados pela API em tempo de execução
+data/*.json
+data/*.tmp
+
+# ambiente / editor / SO
+.env
+.env.*
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+npm-debug.log*

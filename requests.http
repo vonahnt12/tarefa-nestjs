@@ -1,0 +1,106 @@
+### Testes manuais das rotas
+### Use com a extensão REST Client do VS Code
+### ou copie para Insomnia, Postman ou Thunder Client.
+
+@base = http://localhost:3000
+
+### Informações da API
+GET {{base}}/
+
+###############################################################
+### TASKS
+###############################################################
+
+### Listar todas
+GET {{base}}/tasks
+
+### Listar só as concluídas
+GET {{base}}/tasks?done=true
+
+### Buscar uma
+GET {{base}}/tasks/1
+
+### Criar
+POST {{base}}/tasks
+Content-Type: application/json
+
+{
+  "title": "Estudar NestJS",
+  "description": "Controllers, services e módulos"
+}
+
+### Substituir inteira (PUT) — campos não enviados voltam ao padrão
+PUT {{base}}/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Estudar NestJS (revisado)",
+  "description": "Persistência em JSON",
+  "done": false
+}
+
+### Alterar parcialmente (PATCH) — só o que for enviado muda
+PATCH {{base}}/tasks/1
+Content-Type: application/json
+
+{
+  "done": true
+}
+
+### Remover
+DELETE {{base}}/tasks/1
+
+### Erro de validação (400) — falta o title
+POST {{base}}/tasks
+Content-Type: application/json
+
+{
+  "description": "sem título"
+}
+
+###############################################################
+### BOOKS
+###############################################################
+
+### Listar todos
+GET {{base}}/books
+
+### Filtrar por autor (busca parcial, sem diferenciar maiúsculas)
+GET {{base}}/books?author=machado
+
+### Buscar um
+GET {{base}}/books/1
+
+### Criar
+POST {{base}}/books
+Content-Type: application/json
+
+{
+  "title": "Dom Casmurro",
+  "author": "Machado de Assis",
+  "year": 1899,
+  "genre": "Romance"
+}
+
+### Substituir inteiro (PUT)
+PUT {{base}}/books/1
+Content-Type: application/json
+
+{
+  "title": "Memórias Póstumas de Brás Cubas",
+  "author": "Machado de Assis",
+  "year": 1881,
+  "genre": "Romance",
+  "read": true
+}
+
+### Alterar parcialmente (PATCH)
+PATCH {{base}}/books/1
+Content-Type: application/json
+
+{
+  "read": false
+}
+
+### Remover
+DELETE {{base}}/books/1
