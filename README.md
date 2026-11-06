@@ -1,5 +1,7 @@
 # nest-tasks-api
 
+# Nome: Eduardo Alencastro von Ahnt
+
 API REST em NestJS com dois módulos, **Tasks** (tarefas) e **Books** (livros), cada um com
 `GET`, `POST`, `PUT`, `PATCH` e `DELETE` e persistência em arquivo JSON.
 
